@@ -112,7 +112,7 @@ namespace ConfiguratorApp
         /// <summary>
         /// Свойство. Картинка опции
         /// </summary>
-        public List<Picture> Pictures
+        public virtual List<Picture> Pictures
         {
             get; set;
         }
@@ -122,7 +122,7 @@ namespace ConfiguratorApp
         /// <summary>
         /// Свойство. Список пакетов, в которых содержится опция
         /// </summary>
-        public List<Package> Packages
+        public virtual List<Package> Packages
         {
             get; set;
         }
@@ -138,7 +138,7 @@ namespace ConfiguratorApp
         /// </summary>
         
         [JsonIgnore]
-        public Company Company
+        public virtual Company Company
         {
             get; set;
         }
@@ -154,7 +154,7 @@ namespace ConfiguratorApp
         /// </summary>
         
         [JsonIgnore]
-        public Bookmark Bookmark
+        public virtual Bookmark Bookmark
         {
             get; set;
         }

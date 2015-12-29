@@ -21,11 +21,11 @@ namespace ConfiguratorApp
         /// <summary>
         /// Свойство. Список опций в закладке
         /// </summary>
-        public List<Option> Options { get; set; }
+        public virtual List<Option> Options { get; set; }
 
         /// <summary>
         /// Свойство. Список пакетов
         /// </summary>
-        public List<Package> Packages { get; set; }
+        public virtual List<Package> Packages { get; set; }
     }
 }

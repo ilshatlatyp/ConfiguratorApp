@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace ConfiguratorApp.Models.Main
 {
@@ -41,19 +42,18 @@ namespace ConfiguratorApp.Models.Main
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Package>().HasMany<Option>(x => x.Options)
-                .WithRequired()
-                .WillCascadeOnDelete(false);
-            modelBuilder.Entity<Package>().HasMany<Option>(x=>x.Options)
-                .WithMany(p=>p.Packages)
+            modelBuilder.Entity<Option>().HasMany<Package>(x => x.Packages)
+                .WithMany(p => p.Options)
                 .Map(po =>
                 {
-                    po.MapLeftKey("PackageId");
-                    po.MapRightKey("OptionId");
+                    po.MapLeftKey("PackId");
+                    po.MapRightKey("OptId");
                     po.ToTable("PackageOptions");
                 });
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

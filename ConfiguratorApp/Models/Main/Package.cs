@@ -112,7 +112,7 @@ namespace ConfiguratorApp
         /// </summary>
         
         [JsonIgnore]
-        public Bookmark Bookmark
+        public virtual Bookmark Bookmark
         {
             get; set;
         }
@@ -122,7 +122,7 @@ namespace ConfiguratorApp
         /// <summary>
         /// Свойство. Список опций в пакете
         /// </summary>
-        public List<Option> Options
+        public virtual List<Option> Options
         {
             get; set;
         }

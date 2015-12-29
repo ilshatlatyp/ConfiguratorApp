@@ -123,7 +123,7 @@ namespace ConfiguratorApp
         /// </summary>
         
         [JsonIgnore]
-        public Picture Logo
+        public virtual Picture Logo
         {
             get
             {
@@ -198,12 +198,12 @@ namespace ConfiguratorApp
         /// <summary>
         /// Свойство. Список емайлов компании
         /// </summary>
-        public List<Email> Emails { get; set; }
+        public virtual List<Email> Emails { get; set; }
 
         /// <summary>
         /// Свойство. Список опций
         /// </summary>
-        public List<Option> Options { get; set; }
+        public virtual List<Option> Options { get; set; }
 
         #endregion
 

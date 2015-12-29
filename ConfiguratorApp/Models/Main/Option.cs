@@ -43,12 +43,10 @@ namespace ConfiguratorApp
         /// <summary>
         /// Свойство. Идентификатор
         /// </summary>
-        public int Option_Id
+        [System.ComponentModel.DataAnnotations.Key]
+        public int OptionId
         {
-            get
-            {
-                return _optionId;
-            }
+            get; set;
         }
 
         /// <summary>
@@ -119,6 +117,8 @@ namespace ConfiguratorApp
             get; set;
         }
 
+ //       public int PackageId { get; set; }
+
         /// <summary>
         /// Свойство. Список пакетов, в которых содержится опция
         /// </summary>
@@ -127,12 +127,24 @@ namespace ConfiguratorApp
             get; set;
         }
 
+        [ForeignKey("Company")]
+        public int CompanyId
+        {
+            get; set;
+        }
+
         /// <summary>
         /// Свойство. Ссылка на компанию
         /// </summary>
-        [ForeignKey("Company_Id")]
+        
         [JsonIgnore]
         public Company Company
+        {
+            get; set;
+        }
+
+        [ForeignKey("Bookmark")]
+        public int BookmarkId
         {
             get; set;
         }
@@ -140,9 +152,9 @@ namespace ConfiguratorApp
         /// <summary>
         /// Свойство. Ссылка на закладку
         /// </summary>
-        [ForeignKey("Bookmark_Id")]
+        
         [JsonIgnore]
-        public Bookmark Bookmarks
+        public Bookmark Bookmark
         {
             get; set;
         }

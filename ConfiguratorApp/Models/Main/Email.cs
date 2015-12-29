@@ -10,7 +10,8 @@ namespace ConfiguratorApp
         /// <summary>
         /// Свойство. Идентификатор
         /// </summary>
-        public int Email_Id { get; set; }
+        [System.ComponentModel.DataAnnotations.Key]
+        public int EmailId { get; set; }
 
         /// <summary>
         /// Свойство. Емайл компании

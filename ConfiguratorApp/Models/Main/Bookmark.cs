@@ -10,7 +10,8 @@ namespace ConfiguratorApp
         /// <summary>
         /// Свойство. Идентификатор
         /// </summary>
-        public int Bookmark_Id { get; set; }
+        [System.ComponentModel.DataAnnotations.Key]
+        public int BookmarkId { get; set; }
 
         /// <summary>
         /// Свойство. Название закладки

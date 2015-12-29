@@ -38,5 +38,22 @@ namespace ConfiguratorApp.Models.Main
         /// Свойство. Сущность связанная с таблицей Картинка
         /// </summary>
         public DbSet<Picture> EFPicture { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Package>().HasMany<Option>(x => x.Options)
+                .WithRequired()
+                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<Package>().HasMany<Option>(x=>x.Options)
+                .WithMany(p=>p.Packages)
+                .Map(po =>
+                {
+                    po.MapLeftKey("PackageId");
+                    po.MapRightKey("OptionId");
+                    po.ToTable("PackageOptions");
+                });
+        }
     }
 }

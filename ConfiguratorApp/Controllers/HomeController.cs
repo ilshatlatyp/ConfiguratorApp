@@ -10,6 +10,8 @@ namespace ConfiguratorApp.Controllers
     {
         public ActionResult Index()
         {
+            ConfiguratorApp.Models.Main.ConfiguratorDBContext db = new Models.Main.ConfiguratorDBContext();
+            Company c = db.EFCompany.First();
             return View();
         }
 

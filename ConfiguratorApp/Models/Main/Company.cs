@@ -64,12 +64,10 @@ namespace ConfiguratorApp
         /// <summary>
         /// Свойство. Идентификатор
         /// </summary>
-        public int Company_Id
+        [System.ComponentModel.DataAnnotations.Key]
+        public int CompanyId
         {
-            get
-            {
-                return _companyId;
-            }
+            get; set;
         }
 
         /// <summary>
@@ -117,10 +115,13 @@ namespace ConfiguratorApp
             }
         }
 
+        [ForeignKey("Logo")]
+        public int PictureId { get; set; }
+
         /// <summary>
         /// Свойство. Логотип компании
         /// </summary>
-        [ForeignKey("Picture_Id")]
+        
         [JsonIgnore]
         public Picture Logo
         {

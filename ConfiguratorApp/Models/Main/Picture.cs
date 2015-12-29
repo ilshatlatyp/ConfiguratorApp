@@ -12,11 +12,12 @@ namespace ConfiguratorApp
         /// <summary>
         /// Свойство. Идентификатор
         /// </summary>
-        public int Picture_Id { get; set; }
+        [System.ComponentModel.DataAnnotations.Key]
+        public int PictureId { get; set; }
 
         /// <summary>
         /// Свойство. Картинка
         /// </summary>
-        public Image Image { get; set; }
+        public byte[] Image { get; set; }
     }
 }

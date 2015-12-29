@@ -9,6 +9,11 @@ namespace ConfiguratorApp
 {
     public class Package
     {
+        public Package()
+        {
+            Options = new HashSet<Option>().ToList();
+        }
+
         #region Fields
 
         /// <summary>
@@ -48,12 +53,10 @@ namespace ConfiguratorApp
         /// <summary>
         /// Свойство. Идентификатор
         /// </summary>
-        public int Package_Id
+        [System.ComponentModel.DataAnnotations.Key]
+        public int PackageId
         {
-            get
-            {
-                return _packageId;
-            }
+            get; set;
         }
 
         /// <summary>
@@ -101,20 +104,24 @@ namespace ConfiguratorApp
             }
         }
 
+        [ForeignKey("Bookmark")]
+        public int BookmarkId { get; set; }
+
         /// <summary>
         /// Свойство. Ссылка на закладку
         /// </summary>
-        [ForeignKey ("Bookmark_Id")]
+        
         [JsonIgnore]
-        public Bookmark Bookmarks
+        public Bookmark Bookmark
         {
             get; set;
         }
 
+      //  public int OptionId { get; set; }
+
         /// <summary>
         /// Свойство. Список опций в пакете
         /// </summary>
-        [ForeignKey("Option_Id")]
         public List<Option> Options
         {
             get; set;

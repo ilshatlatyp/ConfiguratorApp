@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace ConfiguratorApp
 {
@@ -42,6 +43,11 @@ namespace ConfiguratorApp
         private bool _optionVisible;
 
         /// <summary>
+        /// Поле. Взаимоисключающий выбор
+        /// </summary>
+        private bool _optional;
+
+        /// <summary>
         /// Поле. Флаг списка не совместимых опций
         /// </summary>
         private bool _uncompatibleOptions;
@@ -53,7 +59,7 @@ namespace ConfiguratorApp
         /// <summary>
         /// Свойство. Идентификатор
         /// </summary>
-        [System.ComponentModel.DataAnnotations.Key]
+        [Key]
         public int PackageId
         {
             get; set;
@@ -101,6 +107,51 @@ namespace ConfiguratorApp
             set
             {
                 _description = value;
+            }
+        }
+
+        /// <summary>
+        /// Свойство. Видны ли опции вне пакета
+        /// </summary>
+        public bool OptionVisible
+        {
+            get
+            {
+                return _optionVisible;
+            }
+            set
+            {
+                _optionVisible = value;
+            }
+        }
+
+        /// <summary>
+        /// Свойство. Взаимоисключающий выбор
+        /// </summary>
+        public bool Optional
+        {
+            get
+            {
+                return _optional;
+            }
+            set
+            {
+                _optional = value;
+            }
+        }
+
+        /// <summary>
+        /// Свойство.  Флаг списка не совместимых опций
+        /// </summary>
+        public bool UncompatibleOptions
+        {
+            get
+            {
+                return _uncompatibleOptions;
+            }
+            set
+            {
+                _uncompatibleOptions = value;
             }
         }
 

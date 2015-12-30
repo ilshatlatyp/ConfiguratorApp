@@ -13,36 +13,35 @@ namespace ConfiguratorApp.Models.Main
         /// <summary>
         /// Свойство. Сущность связанная с таблицей Закладки
         /// </summary>
-        public DbSet<Bookmark> EFBookmark { get; set; }
+        public virtual DbSet<Bookmark> BookmarkSet { get; set; }
 
         /// <summary>
         /// Свойство. Сущность связанная с таблицей Компания
         /// </summary>
-        public DbSet<Company> EFCompany { get; set; }
+        public virtual DbSet<Company> CompanySet { get; set; }
 
         /// <summary>
         /// Свойство. Сущность связанная с таблицей Емайл
         /// </summary>
-        public DbSet<Email> EFEmail { get; set; }
+        public virtual DbSet<Email> EmailSet { get; set; }
 
         /// <summary>
         /// Свойство. Сущность связанная с таблицей Опция
         /// </summary>
-        public DbSet<Option> EFOption { get; set; }
+        public virtual DbSet<Option> OptionSet { get; set; }
 
         /// <summary>
         /// Свойство. Сущность связанная с таблицей Пакет
         /// </summary>
-        public DbSet<Package> EFPackage { get; set; }
+        public virtual DbSet<Package> PackageSet { get; set; }
 
         /// <summary>
         /// Свойство. Сущность связанная с таблицей Картинка
         /// </summary>
-        public DbSet<Picture> EFPicture { get; set; }
+        public virtual DbSet<Picture> PictureSet { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-
             modelBuilder.Entity<Option>().HasMany<Package>(x => x.Packages)
                 .WithMany(p => p.Options)
                 .Map(po =>

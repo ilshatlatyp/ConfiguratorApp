@@ -4,11 +4,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace ConfiguratorApp
 {
     public class Company
     {
+        public Company()
+        {
+            Options = new HashSet<Option>().ToList();
+        }
 
         #region Fields
 
@@ -30,7 +35,7 @@ namespace ConfiguratorApp
         /// <summary>
         /// Поле. Логотип
         /// </summary>
-        private Picture _logo;
+        private byte[] _logo;
 
         /// <summary>
         /// Поле. Дата регистрации
@@ -64,7 +69,7 @@ namespace ConfiguratorApp
         /// <summary>
         /// Свойство. Идентификатор
         /// </summary>
-        [System.ComponentModel.DataAnnotations.Key]
+        [Key]
         public int CompanyId
         {
             get; set;
@@ -115,15 +120,10 @@ namespace ConfiguratorApp
             }
         }
 
-        [ForeignKey("Logo")]
-        public int PictureId { get; set; }
-
         /// <summary>
         /// Свойство. Логотип компании
         /// </summary>
-        
-        [JsonIgnore]
-        public virtual Picture Logo
+        public virtual byte[] Logo
         {
             get
             {
@@ -168,17 +168,17 @@ namespace ConfiguratorApp
         /// <summary>
         /// Свойство. Имя директора
         /// </summary>
-        public string NameOfBoss
-        {
-            get
-            {
-                return _nameOfBoss;
-            }
-            set
-            {
-                _nameOfBoss = value;
-            }
-        }
+        //public string NameOfBoss
+        //{
+        //    get
+        //    {
+        //        return _nameOfBoss;
+        //    }
+        //    set
+        //    {
+        //        _nameOfBoss = value;
+        //    }
+        //}
 
         /// <summary>
         /// Свойство. Моб телефон контактного лица

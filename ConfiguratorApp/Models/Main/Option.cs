@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace ConfiguratorApp
 {
@@ -42,8 +43,7 @@ namespace ConfiguratorApp
 
         /// <summary>
         /// Свойство. Идентификатор
-        /// </summary>
-        [System.ComponentModel.DataAnnotations.Key]
+        [Key]
         public int OptionId
         {
             get; set;
@@ -107,6 +107,12 @@ namespace ConfiguratorApp
             {
                 _description = value;
             }
+        }
+
+        [ForeignKey("Pictures")]
+        public int PictureId
+        {
+            get; set;
         }
 
         /// <summary>

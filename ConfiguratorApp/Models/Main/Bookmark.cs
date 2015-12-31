@@ -8,6 +8,15 @@ namespace ConfiguratorApp
 {
     public class Bookmark
     {
+        public Bookmark()
+        {
+            Options = new HashSet<Option>().ToList();
+            Packages = new HashSet<Package>().ToList();
+
+            Packages = new List<Package>();
+            Options = new List<Option>();
+        }
+
         /// <summary>
         /// Свойство. Идентификатор
         /// </summary>

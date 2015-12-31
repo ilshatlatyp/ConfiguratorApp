@@ -13,6 +13,10 @@ namespace ConfiguratorApp
         public Company()
         {
             Options = new HashSet<Option>().ToList();
+            Emails = new HashSet<Email>().ToList();
+
+            Emails = new List<Email>();
+            Options = new List<Option>();
         }
 
         #region Fields

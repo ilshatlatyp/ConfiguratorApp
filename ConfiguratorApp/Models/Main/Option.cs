@@ -10,6 +10,13 @@ namespace ConfiguratorApp
 {
     public class Option
     {
+        public Option()
+        {
+            Packages = new HashSet<Package>().ToList();
+
+            Packages = new List<Package>();
+        }
+
         #region Fields
 
         /// <summary>

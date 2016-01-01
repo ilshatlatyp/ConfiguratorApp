@@ -14,14 +14,15 @@ namespace ConfiguratorApp.Controllers
 
         ConfiguratorDBContext db = new ConfiguratorDBContext();
         // GET: Options
-        public ActionResult Index()//(string account)
+        public ActionResult Index()
         {
-            //List<Option> OptionList = db.OptionSet.Include(c => c.Company)
-            //                            .Where(o => o.Company.AccountName == account)
-            //                            .ToList();
-            //string s = JsonConvert.SerializeObject(OptionList); 
-            //return View(s);
-            return View();
+            string account = RouteData.Values["id"].ToString();
+            List<Option> OptionList = db.OptionSet.Include(c => c.Company)
+                                        .Where(o => o.Company.AccountName == account)
+                                        .ToList();
+            string str = JsonConvert.SerializeObject(OptionList);
+            ViewBag.str = str;
+            return View(OptionList);
         }
     }
 }

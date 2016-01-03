@@ -17,12 +17,9 @@ namespace ConfiguratorApp.Controllers
         public ActionResult Index()
         {
             string account = RouteData.Values["id"].ToString();
-            List<Option> OptionList = db.OptionSet.Include(c => c.Company)
-                                        .Where(o => o.Company.AccountName == account)
-                                        .ToList();
-            string str = JsonConvert.SerializeObject(OptionList);
-            ViewBag.str = str;
-            return View(OptionList);
+            ViewBag.account = account;
+
+            return View();
         }
     }
 }

@@ -13,7 +13,6 @@ namespace ConfiguratorApp
         public Option()
         {
             Packages = new HashSet<Package>().ToList();
-
             Packages = new List<Package>();
         }
 
@@ -50,6 +49,7 @@ namespace ConfiguratorApp
 
         /// <summary>
         /// Свойство. Идентификатор
+        /// <summary>
         [Key]
         public int OptionId
         {
@@ -123,7 +123,7 @@ namespace ConfiguratorApp
         }
 
         /// <summary>
-        /// Свойство. Картинка опции
+        /// Свойство. Картинки опции
         /// </summary>
         public virtual List<Picture> Pictures
         {

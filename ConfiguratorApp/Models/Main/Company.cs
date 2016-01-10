@@ -19,6 +19,8 @@ namespace ConfiguratorApp
             Options = new List<Option>();
         }
 
+       public enum CompanyTypes {Простой, Автомобильный, Мебельный }
+
         #region Fields
 
         /// <summary>
@@ -65,6 +67,11 @@ namespace ConfiguratorApp
         /// Поле. Номер телефона
         /// </summary>
         private string _phone;
+
+        /// <summary>
+        /// Поле. 
+        /// </summary>
+        private CompanyTypes _type;
 
         #endregion
 
@@ -196,6 +203,21 @@ namespace ConfiguratorApp
             set
             {
                 _phone = value;
+            }
+        }
+
+        /// <summary>
+        /// Свойство. Тип компании
+        /// </summary>
+        public CompanyTypes CompanyType
+        {
+            get
+            {
+                return _type;
+            }
+            set
+            {
+                _type = value;
             }
         }
 
